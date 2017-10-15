@@ -72,11 +72,9 @@ $('div#wrapperNone').bind('click', tripInN);
 }
 
 	
-
-
 /*Select Box js*/
 $('.drop-menu').click(function () {
-        $(this).attr('tabindex', 1).focus();
+       /* $(this).attr('tabindex', 1).focus();*/
         $(this).toggleClass('active');
         $(this).find('.dropeddown').slideToggle(300);
     });
@@ -92,9 +90,15 @@ $('.drop-menu').click(function () {
 
 
 $('.dropeddown li').click(function () {
+	$('.msg span').removeAttr('style');
   var input = '<strong>' + $(this).parents('.drop-menu').find('input').val() + '</strong>',
       msg = '<span class="msg">Hidden input value is ';
+	
+	textColor = $(this).css('background-color');
+		
   $('.msg').html(msg + input + '</span>');
+	
+	$('.msg span strong').css('color', textColor);
 }); 
 
 
